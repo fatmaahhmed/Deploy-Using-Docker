@@ -6,3 +6,9 @@ services:
       - "3000:${PORT}" # Maps port 3000 on the host to the port specified in the .env file
     env_file:
       - ./.env # Reference to the .env file
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
