@@ -1,11 +1,14 @@
 // index.js
+//reload environment
+require("dotenv").config();
 const express = require("express");
 const app = express();
 
-const port = 4000;
+const port = process.env.PORT;
+console.log("Port: " + port);
 
 app.get("/", (req, res) => {
-  res.send("Hello, Docker with Express!hi hi");
+  res.send("Hello, Docker with Express!");
 });
 
 app.listen(port, "0.0.0.0", () => {
