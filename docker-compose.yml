@@ -1,14 +1,8 @@
 version: "3.8"
-
 services:
   my-node-app:
     image: express-app
-    container_name: express-app
-    build: .
-    volumes:
-      - .:/usr/src/app:ro
-      - /usr/src/app/node_modules
     ports:
       - "3000:${PORT}" # Maps port 3000 on the host to the port specified in the .env file
     env_file:
-      - .env # Reference to the .env file
+      - ./.env # Reference to the .env file
