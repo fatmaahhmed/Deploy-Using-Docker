@@ -1,11 +1,13 @@
 version: "3.8"
 services:
   my-node-app:
-    image: express-app
+    image: fatmahmed/express-app
     ports:
       - "3000:${PORT}" # Maps port 3000 on the host to the port specified in the .env file
     env_file:
       - ./.env # Reference to the .env file
+    depends_on:
+      - mongo
   mongo:
     image: mongo
     restart: always
@@ -26,6 +28,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
       ME_CONFIG_BASICAUTH: "false"
+    depends_on:
+      - mongo
 
 volumes:
   mongo-data:

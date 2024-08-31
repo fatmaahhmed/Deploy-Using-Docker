@@ -19,7 +19,7 @@ const port = process.env.PORT;
 console.log("Port: " + port);
 
 app.get("/", (req, res) => {
-  res.send("Hello, Docker with Express!");
+  res.send("Hello, Docker with Express!,using docker hup,using azure ");
 });
 app.get("/allusers", (req, res) => {
   res.send("Hello, All users here!");
